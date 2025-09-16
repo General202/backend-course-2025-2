@@ -1,14 +1,14 @@
 const { URL } = require("url");
 
-const date = "20231001";     
-const time_period = "q";     
+const currency = "usd";        // долар США
+const start = "20220707";     // дата початку
+const end = "20220719";       // дата кінця
 
-const url = new URL("https://bank.gov.ua/");
+const url = new URL("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange");
 
-url.pathname = "/NBUStatService/v1/statdirectory/basindbank";
-
-url.searchParams.append("date", date);
-url.searchParams.append("period", time_period);
-url.searchParams.append("json", "");
+url.searchParams.set("valcode", currency);
+url.searchParams.set("start", start);
+url.searchParams.set("end", end);
+url.searchParams.set("json", "");
 
 console.log(url.toString());
